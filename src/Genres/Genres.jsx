@@ -15,16 +15,12 @@ class Genres extends React.Component{
     generateGenres() {
         let randomGenres = []
         let randomGenreElements = []
-        console.log(this.props.list)
-        console.log(parseInt(this.state.value))
         if (!isNaN(parseInt(this.state.value)) ){
         while (randomGenres.length <= parseInt(this.state.value) - 1 ) {
             let randomIndex = Math.floor(Math.random()*1000)
-            console.log(randomIndex)
-            console.log(this.props.list[randomIndex])
             if (!randomGenres.includes(this.props.list[randomIndex])){
                 randomGenres.push(<li>{this.props.list[randomIndex]}  &nbsp;
-                    <a target="_blank" href={`http://www.google.com/search?q=${this.props.list[randomIndex]}`}>? </a>
+                    <a target="_blank" href={`http://www.google.com/search?q=${this.props.list[randomIndex]}%20music`}>? </a>
                     </li>);
             }
         }
@@ -48,7 +44,6 @@ class Genres extends React.Component{
     }
 
     handleStateInteger() {
-        console.log(isNaN(parseInt(this.state.value)))
         if(isNaN(parseInt(this.state.value))) {
             return "";
         } else {
@@ -69,6 +64,8 @@ class Genres extends React.Component{
                         value={this.handleStateInteger()} 
                         ref={input => {this.genreCount = input;}}
                          onChange={this.handleChange}/>
+                         <br/>
+                         <br/>
                          <button onClick={this.handleChange}>Reshuffle</button>
                 <ol className="genreList list">
                     {genresList}
