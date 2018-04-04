@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import categorizedGenres from './categorized-subset.json';
 import allGenres from './genreslist.json';
-import Genres from './Genres/Genres.jsx'
+import Genres from './Genres/Genres.jsx';
+import Tempo from './Tempo/Tempo.jsx';
 
 class App extends Component {
   render() {
@@ -16,7 +17,7 @@ class App extends Component {
           <Genres list={allGenres}/>
         </div>
         <div className="pure-u-1-4">
-          Tempo and Rhythm
+          <Tempo/>
         </div>
         <div className="pure-u-1-4">
           Name and Content

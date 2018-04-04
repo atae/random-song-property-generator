@@ -11,6 +11,7 @@ class Genres extends React.Component{
 
         this.handleChange = this.handleChange.bind(this)
         this.handleStateInteger = this.handleStateInteger.bind(this)
+        this.randomValue = this.randomValue.bind(this)
     }
     generateGenres() {
         let randomGenres = []
@@ -51,6 +52,12 @@ class Genres extends React.Component{
         }
     }
 
+    randomValue() {
+        this.setState({
+            value: Math.ceil(Math.random() * 9)
+        });
+    }
+
     render() {
         let genresList = this.generateGenres();
         return (
@@ -66,6 +73,7 @@ class Genres extends React.Component{
                          onChange={this.handleChange}/>
                          <br/>
                          <br/>
+                         <button onClick={this.randomValue}> Random </button>
                          <button onClick={this.handleChange}>Reshuffle</button>
                 <ol className="genreList list">
                     {genresList}
